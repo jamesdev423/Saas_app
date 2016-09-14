@@ -14,6 +14,8 @@ end
 
 # Use bootstrap for styles
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+# Use font awesome for icons
+gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
