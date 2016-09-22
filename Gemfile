@@ -61,6 +61,8 @@ gem 'devise', '~> 4.2'
 gem 'stripe', '~> 1.16.1'
 # Use figaro for hiding secret keys
 gem 'figaro', '~> 1.0.0'
+# Use paperclip for images
+gem 'paperclip', '~> 5.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
