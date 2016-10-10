@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   	resources :users do
     		resource :profile
       end
+      resources :conversations do
+      	resources :messages
+      end
 	resources :contacts
 	get '/about' => 'pages#about'
 	root 'pages#home'

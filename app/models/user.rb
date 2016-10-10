@@ -6,6 +6,16 @@ class User < ApplicationRecord
 	belongs_to :plan
 	has_one :profile
 	attr_accessor :stripe_card_token
+
+      acts_as_messageable
+      
+      def name
+        "User #{id}"
+      end
+
+      def mailboxer_email(object)
+        nil
+      end
   
   def save_with_payment
     if valid?
