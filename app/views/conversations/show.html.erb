@@ -11,9 +11,10 @@
 
 		<%= form_tag conversation_messages_path(@conversation), method: :post do %>
 			<div>
-				<%= text_area_tag :body %>
+				<%= text_area_tag :body, nil, placeholder: "Type Comment" %>
 			</div>
-			<%= submit_tag %>
+			<%= submit_tag 'Add Comment', class: "btn btn-primary" %>
+			<%= link_to "Delete Conversation", conversations_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
 		<% end %>
 	</div>
 </div>
