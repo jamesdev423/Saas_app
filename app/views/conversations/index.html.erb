@@ -1,11 +1,26 @@
 <div class="row">
 	<div class="well">
-		<h1>All Conversations</h1>
+		<h1>Conversations</h1>
+
+		<hr />
+
+		Inbox (<%= current_user.mailbox.inbox.unread(current_user).count %>) |
+		All Conversations (<%= current_user.mailbox.conversations.count %>) |
+		Sent (<%= current_user.mailbox.sentbox.count %>) |
+		Trash (<%= current_user.mailbox.trash.count %>)
+
+		<hr />
+
+		Total: <%= @conversations.count %>
 
 		<% @conversations.each do |conversation| %>
-			<div>
-				<%= link_to conversation.subject, conversation_path(conversation) %>
-			</div>
+		  <div>
+		    <% if conversation.is_unread?(current_user) %>
+		      <strong><%= link_to conversation.subject, conversation_path(conversation) %></strong>
+		    <% else %>
+		      <%= link_to conversation.subject, conversation_path(conversation) %>
+		    <% end %>
+		  </div>
 		<% end %>
 
 		<%= link_to "New Conversation", new_conversation_path, class: 'btn btn-primary navbar-btn' %>

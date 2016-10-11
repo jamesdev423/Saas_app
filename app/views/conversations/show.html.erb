@@ -2,19 +2,31 @@
 	<div class="well">
 		<h1><%= @conversation.subject %></h1>
 
-		<% @conversation.receipts_for(current_user).each do |receipt| %>
-			<div>
-				<div><%= receipt.message.sender.name %> commented:</div>
-				<p><%= receipt.message.body %></p>
-			</div>
+		<h4>Participants</h4>
+		<% @conversation.participants.each do |participant| %>
+		  <div><%= participant.name %></div>
 		<% end %>
 
-		<%= form_tag conversation_messages_path(@conversation), method: :post do %>
-			<div>
-				<%= text_area_tag :body, nil, placeholder: "Type Comment" %>
-			</div>
-			<%= submit_tag 'Add Comment', class: "btn btn-primary" %>
-			<%= link_to "Delete Conversation", conversations_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+		<hr />
+
+		<% @conversation.receipts_for(current_user).each do |receipt| %>
+		  <div>
+		    <div><%= receipt.message.sender.name %> commented</div>
+		    <%= simple_format receipt.message.body %>
+
+		    <% if receipt.message.attachment? %>
+		      <strong>Attachment</strong>
+		      <%= link_to receipt.message.attachment.file.filename, receipt.message.attachment.url, target: :blank %>
+		    <% end %>
+		  </div>
+
+		  <hr />
+		<% end %>
+
+		<%= form_for @message, url: conversation_messages_path(@conversation) do |f| %>
+		  <div><%= f.text_area :body %></div>
+		  <div><%= f.file_field :attachment %></div>
+		  <%= f.submit %>
 		<% end %>
 	</div>
 </div>
