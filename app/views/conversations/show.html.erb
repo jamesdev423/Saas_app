@@ -24,9 +24,10 @@
 		<% end %>
 
 		<%= form_for @message, url: conversation_messages_path(@conversation) do |f| %>
-		  <div><%= f.text_area :body %></div>
+		  <div><%= f.text_area :body, placeholder: "Type Message" %></div>
 		  <div><%= f.file_field :attachment %></div>
-		  <%= f.submit %>
+		  <%= f.submit 'Send Message', class: "btn btn-primary" %> 
+		  <%= link_to "Back", conversations_path, class: "btn btn-default" %>
 		<% end %>
 	</div>
 </div>
