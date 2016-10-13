@@ -16,11 +16,6 @@
         <%= @user.profile.phone_number %><br/>
         <%= @user.profile.contact_email %><br/>
       </div>
-        <% if @user == current_user %>
-          <%= link_to "View Conversations", conversations_path, class: "btn btn-default" %>
-        <% else %>
-          <%= link_to "Send Message", new_conversation_path, class: 'btn btn-primary navbar-btn', method: :get %>
-        <% end %>
     <% end %>
     
   </div>

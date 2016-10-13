@@ -1,7 +1,7 @@
 Mailboxer.setup do |config|
 
 def mailboxer_email(object)
-  
+  email
 end
   #Configures if your application uses or not email sending for Notifications and Messages
   config.uses_emails = true

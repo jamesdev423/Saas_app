@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require chosen-jquery
+//= require messages
 //= require bootstrap-sprockets
 //= require_tree .

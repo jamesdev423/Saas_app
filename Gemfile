@@ -18,6 +18,8 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+
+gem 'chosen-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -66,6 +68,8 @@ gem 'paperclip', '~> 5.1'
 gem 'aws-sdk', '~> 2.3'
 gem 'mailboxer'
 gem 'mini_magick'
+gem 'bootstrap-will_paginate'
+gem 'gravatar_image_tag'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

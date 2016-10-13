@@ -1,29 +1,25 @@
+<% page_header "Conversations" %>
+
+
+
 <div class="row">
-	<div class="well">
-		<h1>Conversations</h1>
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <%= mailbox_section 'inbox', @box %>
+      <%= mailbox_section 'sent', @box %>
+      <%= mailbox_section 'trash', @box %>
+    </ul>
+  </div>
 
-		<hr />
-
-		Inbox (<%= current_user.mailbox.inbox.unread(current_user).count %>) |
-		All Conversations (<%= current_user.mailbox.conversations.count %>) |
-		Sent (<%= current_user.mailbox.sentbox.count %>) |
-		Trash (<%= current_user.mailbox.trash.count %>)
-			
-		<hr />
-
-		Total: <%= @conversations.count %>
-
-		<% @conversations.each do |conversation| %>
-		  <div>
-		    <% if conversation.is_unread?(current_user) %>
-		      <strong><%= link_to conversation.subject, conversation_path(conversation) %></strong>
-		    <% else %>
-		      <%= link_to conversation.subject, conversation_path(conversation) %>
-		    <% end %>
-		  </div>
-		<% end %>
-
-		<%= link_to "New Conversation", new_conversation_path, class: 'btn btn-primary navbar-btn' %>
-		<%= link_to "Back To Profile", user_path(current_user), class: 'btn btn-default navbar-btn' %>
-	</div>
+  <div class="col-sm-9">
+    <% if @box == 'trash' %>
+      <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
+                     data: {confirm: 'Are you sure?'} %></p>
+    <% end %>
+    <ul class="list-group">
+      <%= render partial: 'conversations/conversation', collection: @conversations %>
+    </ul>
+	<p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
+    <%= will_paginate %>
+  </div>
 </div>

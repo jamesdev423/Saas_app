@@ -4,16 +4,17 @@ Rails.application.routes.draw do
     		resource :profile
       end
 
-      resources :conversations do
-          resources :messages
-
-          collection do
-              get :inbox
-              get :all, action: :index
-              get :sent
-              get :trash
-          end
+      resources :conversations, only: [:index, :show, :destroy] do
+      	member do
+      		post :reply
+      		post :restore
+      		post :mark_as_read
+      	end
+      	collection do
+      		delete :empty_trash
+      	end
       end
+      resources :messages, only: [:new, :create]
 
 	resources :contacts
 	get '/about' => 'pages#about'

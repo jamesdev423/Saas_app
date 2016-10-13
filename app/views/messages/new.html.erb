@@ -1,14 +1,20 @@
-<br \><br \>
-<div class="container">
- 	<div class ="well">
- 		<p><h3>Send a message to <%= @user.name %></h3></p>
-      <p><%= form_tag({controller: "messages", action: "create"}, method: :post) do %></p>
-      <%= label_tag :subject %>
-      <p><%= text_field_tag :subject %></p>
-      <%= label :body, "Message text" %>
-      <p><%= text_area_tag :body %></p>
-       <%= hidden_field_tag(:user, "#{@user.id}") %>
-      <%= submit_tag 'Send message', class: "btn btn-primary" %>
-    <% end %>
+<% page_header "Start Conversation" %>
+
+<%= form_tag messages_path, method: :post do %>
+  <div class="form-group">
+    <%= label_tag 'message[subject]', 'Subject' %>
+    <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
   </div>
-</div>
+
+  <div class="form-group">
+    <%= label_tag 'message[body]', 'Message' %>
+    <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag 'recipients', 'Choose recipients' %>
+    <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control chosen-it' %>
+  </div>
+
+  <%= submit_tag 'Send', class: 'btn btn-primary' %>
+<% end %>
