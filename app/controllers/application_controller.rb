@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   def redirect_back_or(path)
   	redirect_to request.referer || path
   end
+
+  def pro_plan_required
+    redirect_to ('/') unless current_user.plan_id == 2 
+  end
   
   protected
     def configure_permitted_parameters
