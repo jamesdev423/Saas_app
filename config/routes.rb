@@ -14,7 +14,10 @@ Rails.application.routes.draw do
       		delete :empty_trash
       	end
       end
+
       resources :messages, only: [:new, :create]
+
+      resources :users, only: [:index]
 
 	resources :contacts
 	get '/about' => 'pages#about'
