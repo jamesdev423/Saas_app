@@ -52,7 +52,11 @@
       <% flash.each do |key, value| %>
         <%= content_tag :div, value, class: "alert alert-#{key}" %>
       <% end %>
-    
+      <script>
+      $(function(){
+        $('#myCarousel').carousel();
+      });
+      </script>
     
       <%= yield %>
     </div>
