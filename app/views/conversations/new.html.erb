@@ -1,17 +1,19 @@
 <div class="row">
-	<div class="well">
-		<h1>New Conversation</h1>
+	<div class="col-md-10 col-md-offset-1">
+		<div class="well">
+			<h1>New Conversation</h1>
 
-		<%= form_tag conversations_path, method: :post do %>
-			<div>
-				<%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
-			</div>
-				<%= text_field_tag :subject, nil,  placeholder: "Subject" %>
-			<div>
-				<%= text_area_tag :body, nil, placeholder: "Type Message" %>
-			</div>
+			<%= form_tag conversations_path, method: :post do %>
+				<div>
+					<%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
+				</div>
+					<%= text_field_tag :subject, nil,  placeholder: "Subject" %>
+				<div>
+					<%= text_area_tag :body, nil, placeholder: "Type Message" %>
+				</div>
 
-			<%= submit_tag 'Send Message', class: "btn btn-primary" %>
-		<% end %>
+				<%= submit_tag 'Send Message', class: "btn btn-primary" %>
+			<% end %>
+		</div>
 	</div>
 </div>
