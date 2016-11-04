@@ -7,9 +7,17 @@
 
 body {
   padding-bottom: 70px;
-  background: #005C97; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #005C97 , #363795); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #005C97 , #363795); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #85bb65; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #216c2a , #85bb65); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #216c2a , #85bb65); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2em;
+  font-weight: 300;
+  color: #85bb65 !important;
 }
 
 .ct {
@@ -28,7 +36,7 @@ small {
 }
 
 .fa-globe.i {
-  font-size: 22px;
+  font-size: 1em;
 }
 
 .alert-notice {
@@ -70,16 +78,19 @@ small {
 /*
     Multicoloured Hover Variations
 */
- 
- #social-fb:hover {
-     color: #3B5998;
- }
- #social-tw:hover {
-     color: #4099FF;
- }
- #social-gp:hover {
-     color: #d34836;
- }
- #social-em:hover {
-     color: #f39c12;
- }
+ a {
+    color: #85bb65; 
+    
+   #social-fb:hover {
+       color: #3B5998;
+   }
+   #social-tw:hover {
+       color: #4099FF;
+   }
+   #social-gp:hover {
+       color: #d34836;
+   }
+   #social-em:hover {
+       color: #f39c12;
+   }
+}
